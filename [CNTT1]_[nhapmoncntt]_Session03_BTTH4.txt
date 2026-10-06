@@ -1,0 +1,79 @@
+BÀI 4: TỐI ƯU TÀI NGUYÊN MÁY TÍNH VÀ XÂY DỰNG HỆ THỐNG LƯU TRỮ KHOA HỌC
+
+PHẦN 1. PHÂN TÍCH
+
+1. Kiểm tra bằng Task Manager
+
+Khi máy bị lag, có thể mở Task Manager để kiểm tra CPU và RAM.
+
+Nếu RAM gần 100% thì nguyên nhân chính là máy đang thiếu bộ nhớ. Khi RAM đầy, Windows sẽ sử dụng Swap file trên SSD để lưu tạm dữ liệu, nhưng SSD chậm hơn RAM nên máy dễ bị giật, lag.
+
+CPU cũng cần được kiểm tra. Nếu CPU sử dụng gần 100% trong thời gian dài thì CPU đang phải xử lý quá nhiều tác vụ.
+
+Trong trường hợp này, việc mở nhiều tab Chrome cùng lúc chạy VS Code có thể làm RAM tăng cao và gây chậm máy.
+
+
+2. Sự khác nhau giữa RAM và Storage
+
+RAM giống như bàn làm việc, dùng để chứa những chương trình và dữ liệu đang được máy tính sử dụng.
+
+Storage giống như ngăn tủ, dùng để lưu trữ dữ liệu lâu dài như phần mềm, code và tài liệu.
+
+RAM có tốc độ nhanh hơn Storage. Vì vậy khi RAM không đủ, máy phải sử dụng Storage làm bộ nhớ tạm thì hiệu năng sẽ giảm.
+
+
+3. Vấn đề lưu code trong System32
+
+Thư mục:
+
+C:\Windows\System32\Code của tôi
+
+không phù hợp để lưu code cá nhân vì System32 là thư mục chứa các thành phần quan trọng của Windows. Ngoài ra tên thư mục có khoảng trắng và chưa theo Naming Convention.
+
+Nên chuyển code sang một thư mục riêng trên ổ D:.
+
+
+PHẦN 2. THIẾT KẾ HỆ THỐNG LƯU TRỮ
+
+Cây thư mục trên ổ D:
+
+D:\
+└── ptit-python
+    ├── session-01
+    │   └── bai-tap-01.py
+    ├── session-02
+    │   └── bai-tap-02.py
+    └── session-03
+        └── bai-tap-03.py
+
+
+Quy tắc 4 trụ cột:
+
+1. Dễ đọc: Tên file và thư mục ngắn gọn, dễ hiểu.
+2. Thống nhất: Dùng một quy tắc đặt tên cho toàn bộ bài.
+3. Không dấu, không khoảng trắng: Tránh tiếng Việt có dấu và khoảng trắng.
+4. Kebab-case: Viết chữ thường và dùng dấu "-" để ngăn cách các từ.
+
+
+Naming Convention:
+
+ptit-python
+session-01
+bai-tap-01.py
+
+
+Mô hình IPO:
+
+Input:
+Dữ liệu từ bàn phím, Chrome, VS Code và các chương trình đang chạy.
+
+Process:
+CPU xử lý dữ liệu và RAM lưu các dữ liệu đang được sử dụng.
+
+Output:
+Kết quả hiển thị trên màn hình.
+
+
+KẾT LUẬN
+
+Máy bị lag chủ yếu có thể do RAM không đủ khi mở nhiều chương trình cùng lúc. Khi RAM đầy, Windows sử dụng Swap file trên SSD nên tốc độ xử lý giảm. Việc chuyển code ra ổ D: và tổ chức thư mục theo quy tắc 3 cấp giúp lưu trữ an toàn, dễ tìm và dễ quản lý hơn.
